@@ -35,13 +35,13 @@ WHERE
 
 -- 3
 SELECT
-    MONTH (payment_date) AS MONTH,
+    DATE_FORMAT(payment_date, '%M - %Y') AS MONTH,
     SUM(amount) AS sum,
     COUNT(rental_id) AS count_rental
 FROM
     payment
 GROUP BY
-    MONTH (payment_date)
+    DATE_FORMAT(payment_date, '%M - %Y')
 ORDER BY
     sum DESC
 LIMIT
